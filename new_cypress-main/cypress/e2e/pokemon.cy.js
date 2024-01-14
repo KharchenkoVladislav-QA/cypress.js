@@ -1,0 +1,56 @@
+describe('Тестирование формы авторизации', function () {
+   it('Покупка аватара', function () {
+        cy.visit('https://pokemonbattle.me');
+        cy.get('.login__content').should('be.visible');
+        cy.get('.auth__title').should('be.visible');
+        cy.get('.auth__title').contains('Битва покемонов');
+        cy.get('p.auth__text').should('be.visible');
+        cy.get('p.auth__text').contains('Вход через соцсеть');
+        cy.get('a.auth__social').should('be.visible');
+        cy.get('#telegram-login-qa_studio_pokemon_prod_bot').should('be.visible');
+        cy.get('.k_show_500').should('be.visible');
+        cy.get(':nth-child(1) > .auth__input').should('be.visible');
+        cy.get('#password').should('be.visible');
+        cy.get('.auth__restore').should('be.visible');
+        cy.get('.auth__button').should('be.visible');
+        cy.get('.auth__form > .auth__text').should('be.visible');
+        cy.get('.auth__logo').should('be.visible');
+        cy.get('.auth__version').should('be.visible');
+        cy.get(':nth-child(1) > .auth__input').type('vladislav11995551@yandex.ru');
+        cy.get('#password').type('Nike161rus');
+        cy.get('.auth__button').click();
+        cy.get('.header__img').should('be.visible');
+        cy.get('.header__btn_active').should('be.visible');
+        cy.get('.header__btns > [href="/trainers"]').should('be.visible');
+        cy.get('.header__btns > [href="/shop"]').should('be.visible');
+        cy.get('.header__container > .header__id').should('be.visible');
+        cy.get('.header__btn-setting').should('be.visible');
+        cy.get('.top_menu_exit').should('be.visible');
+        cy.get('.pokemon__title').should('be.visible');
+        cy.get('.filter-wrapper').should('be.visible');
+        cy.get('#search-input').should('be.visible');
+        cy.get('.pokemon__filter-btn').should('be.visible');
+        cy.get('.parent__mainblock_load_more_button').should('be.visible');
+        cy.get('.footer__studio').should('be.visible');
+        cy.get('.footer__logo > div').should('be.visible');
+        cy.get('.header__btns > [href="/shop"]').click();
+        cy.get('.header__img').should('be.visible');
+        cy.get('.header__btn_active').should('be.visible');
+        cy.get('.header__btns > [href="/trainers"]').should('be.visible');
+        cy.get('.header__btns > [href="/shop"]').should('be.visible');
+        cy.get('.header__container > .header__id').should('be.visible');
+        cy.get('.header__btn-setting').should('be.visible');
+        cy.get('.top_menu_exit').should('be.visible');
+        cy.get('.pokemon__title').should('be.visible');
+        cy.get('.pokemon__title').contains('Магазин');
+        cy.get('.shop__list > li').not('.feature-empty').children('.shop__button').eq(0).click();
+        cy.get('.pay__payform-v2 > :nth-child(2) > .pay_base-input-v2').type('4620869113632996');
+        cy.get(':nth-child(1) > .pay_base-input-v2').type('1225');
+        cy.get('.pay-inputs-box > :nth-child(2) > .pay_base-input-v2').type('125');
+        cy.get('.pay__input-box-last-of > .pay_base-input-v2').type('Vladislav');
+        cy.get('.pay-btn').click();
+        cy.get('#cardnumber').type('56456');
+        cy.get('.payment__submit-button').click();
+        cy.get('.payment__adv').click();
+    })
+})
